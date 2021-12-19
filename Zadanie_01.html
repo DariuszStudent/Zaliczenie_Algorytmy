@@ -1,0 +1,67 @@
+<!-- Napisać operację dodawania elementu na końcu listy jednokierunkowej -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do szkoły</title>
+</head>
+
+<body style="background-color: black;">
+
+    <script>
+
+        class LinkedList {
+            constructor() {
+                this.first = null
+            }
+            AddFirst(data) {
+                this.first = {
+                    data: data,
+                    next: this.first
+                }
+            }
+            RemoveFirst() {
+                let oldNode = this.first
+                if (oldNode == null)
+                    return undefined
+                this.first = oldNode.next
+                return oldNode.data
+            }
+            findLast() {
+                let nowNode = this.first
+                if (nowNode == null)
+                    return null
+                else
+                    while (nowNode.ref != null)
+                        nowNode = nowNode.ref
+                return nowNode
+            }
+            AddLast(data) {
+                let oldNode = this.findLast()
+                if (oldNode == null)
+                    return this.AddFirst(data)
+                let newNode = {
+                    data: data,
+                    ref: null
+                }
+                oldNode.ref = newNode
+            }
+        }
+
+        let nowalista = new LinkedList()
+
+        nowalista.AddFirst("a")
+        nowalista.AddFirst("b")
+        nowalista.AddFirst("c")
+        nowalista.AddFirst("d")
+        nowalista.AddLast("a")
+
+        // nowalista.findLast()
+    </script>
+</body>
+
+</html>

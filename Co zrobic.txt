@@ -1,0 +1,17 @@
+1--- Napisać operację dodawania elementu na końcu listy jednokierunkowej
+2--- Napisać operację dodawania klucza do binarnego drzewa poszukiwań
+3--- Napisać funkcję przeprowadzającą sortowanie bąbelkowe liczb malejąco na liście lub 
+    tablicy (można użyć wbudowanych struktur, nie można używać wbudowanego sortowania)
+4--- Napisać funkcję sprawdzającą poprawność domknięcia bloków, otwieranych i zamykanych 
+    tym samym znakiem zależnie 
+    od parzystości (jeśli ostatnim otwieranym blokiem był ten sam, 
+    co odpowiada bieżącemu znakowi, 
+    to go zamknij; w przeciwnym wypadku go otwórz), oznaczonych znakami:
+        a) cytatu/cudzysłowu podwójnego - znak  " ,
+        b) cytatu/cudzysłowu pojedynczego - znak  ' ,
+        c) wartości absolutnej - znak pionowej kreski  | ,
+    Po zakończeniu przeglądania napisu należy sprawdzić, czy wszystkie bloki 
+    zostały domknięte i jeśli nie, 
+    to stwierdzić błąd i poinformować o rodzaju niedomkniętych bloków.
+    Do realizacji zadania należy wykorzystać stos (wystarczy jeden), 
+    pomocniczo można też skorzystać ze słownika/słowników.

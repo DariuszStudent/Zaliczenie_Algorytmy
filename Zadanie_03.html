@@ -1,0 +1,35 @@
+<!-- Napisać funkcję przeprowadzającą sortowanie bąbelkowe liczb malejąco na liście lub
+tablicy (można użyć wbudowanych struktur, nie można używać wbudowanego sortowania) -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do szkoły</title>
+</head>
+
+<body style="background-color: black;">
+
+    <script>
+        let tablica = [1, 55, 67, 89, 2, 65, 99, 100, 5, 8, 9, 0, 1]
+
+        function sortowanieBąbelkowe(tablica) {
+            for (let i = 0; i < tablica.length; i++) {
+                for (let j = 0; j < tablica.length - i - 1; j++) {
+                    if (tablica[j] < tablica[j + 1]) {
+                        const temp = tablica[j + 1]
+                        tablica[j + 1] = tablica[j]
+                        tablica[j] = temp
+                    }
+                }
+            }
+
+            return tablica
+        }
+    </script>
+</body>
+
+</html>

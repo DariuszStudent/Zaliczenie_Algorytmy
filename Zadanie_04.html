@@ -1,0 +1,85 @@
+<!-- 4--- Napisać funkcję sprawdzającą poprawność domknięcia bloków, otwieranych i zamykanych 
+    tym samym znakiem zależnie 
+    od parzystości (jeśli ostatnim otwieranym blokiem był ten sam, 
+    co odpowiada bieżącemu znakowi, 
+    to go zamknij; w przeciwnym wypadku go otwórz), oznaczonych znakami:
+        a) cytatu/cudzysłowu podwójnego - znak  " ,
+        b) cytatu/cudzysłowu pojedynczego - znak  ' ,
+        c) wartości absolutnej - znak pionowej kreski  | ,
+    Po zakończeniu przeglądania napisu należy sprawdzić, czy wszystkie bloki 
+    zostały domknięte i jeśli nie, 
+    to stwierdzić błąd i poinformować o rodzaju niedomkniętych bloków.
+    Do realizacji zadania należy wykorzystać stos (wystarczy jeden), 
+    pomocniczo można też skorzystać ze słownika/słowników. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>100</title>
+</head>
+
+<body style="background-color: black;">
+    <script>
+        class Stos {
+            constructor() {
+                this.top = null
+                this.high = 0
+            }
+            połóż(wartość) {
+                let newTop = {
+                    data: wartość,
+                    ref: this.top
+                }
+                this.top = newTop
+                this.high += 1
+            }
+            zdejmij() {
+                let oldTop = this.top
+                if (oldTop != null) {
+                    this.top = oldTop.ref
+                    this.high -= 1
+                    return oldTop.dane
+                }
+                else
+                    return null
+            }
+            podejrzyj() {
+                if (this.top != null)
+                    return this.top.data
+                else
+                    return null
+            }
+        }
+
+        const cudzysłowy = {
+            "\"": "podwojny nawias",
+            "'": "pojedyńczy nawias",
+            "|": "pipe"
+        }
+
+        function walidujCudzysłowy(input) {
+            let stos = new Stos()
+            let coZle = null;
+            for (let znak of input) {
+                if (cudzysłowy[znak] != undefined)
+                    if (cudzysłowy[znak] == stos.podejrzyj())
+                        stos.zdejmij()
+                    else
+                        stos.połóż(cudzysłowy[znak])
+            }
+            if (stos.podejrzyj() != null) {
+                console.log("To jest zle: " + stos.podejrzyj())
+                return false
+            }
+            else
+                return true
+        }
+
+    </script>
+</body>
+
+</html>

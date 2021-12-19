@@ -1,0 +1,68 @@
+<!-- Napisać operację dodawania klucza do binarnego drzewa poszukiwań -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do szkoły</title>
+</head>
+
+<body style="background-color: black;">
+
+    <script>
+        class BST {
+            constructor() {
+                this.root = null
+                this.Node = function (key) {
+                    this.key = key
+                    this.left = null
+                    this.right = null
+                };
+            }
+
+            add(key) {
+                var newNode = new this.Node(key)
+                if (this.root == null) {
+                    this.root = newNode
+                } else {
+                    this.insertHelper(this.root, newNode)
+                }
+            }
+
+            insertHelper(node, newNode) {
+                if (node.key > newNode.key) {
+                    if (node.left == null) {
+                        node.left = newNode
+                    } else {
+                        this.insertHelper(node.left, newNode)
+                    }
+                } else {
+                    if (node.right == null) {
+                        node.right = newNode
+                    } else {
+                        this.insertHelper(node.right, newNode)
+                    }
+                }
+            };
+
+            contains(key) {
+                let node = this.root
+                while (node != null)
+                    if (key == node.key)
+                        return true
+                    else if (key < node.key)
+                        node = node.left
+                    else
+                        node = node.right
+                return false
+            }
+        }
+
+        let bst = new BST()
+    </script>
+</body>
+
+</html>
